@@ -5,7 +5,10 @@ React components automatically re-render whenever there is a change in their `st
 `Re-Render Child Component when Parent State Changes`
 
 **[Memoization](https://en.wikipedia.org/wiki/Memoization)** *is an optimization technique used primarily to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.*
-
+* A memoized function remembers the results of an ouput for a given set of inputs.
+* In **React** , we can memoize components (where the input are props), functions, or just reqular computed value.
+* When memoizing components, it does a **shallow** comparision (by default) of the props, and if it sees that it has changed, then it will re-render.
+* Memoization is not free. You are trading space for time. 
 
 ## [memo](https://reactjs.org/docs/react-api.html#reactmemo)
 `React.memo` is a [higher order component](https://reactjs.org/docs/higher-order-components.html). It’s similar to [React.PureComponent](https://reactjs.org/docs/react-api.html#reactpurecomponent) but for function components instead of classes. If your function component renders the same result given the same props, you can wrap it in a call to `React.memo` for a performance boost in some cases by memoizing the result. This means that React will skip rendering the component, and reuse the last rendered result.
@@ -135,15 +138,10 @@ const ComponentThatRendersOften = ({ cb1, cb2 }) => {
 ```
 
 :memo: **참고 자료**   
-* [https://kentcdodds.com/blog/usememo-and-usecallback](https://kentcdodds.com/blog/usememo-and-usecallback) :bookmark:   
-* [https://www.youtube.com/watch?v=4BranN3qnDU&t=13s](https://www.youtube.com/watch?v=4BranN3qnDU&t=13s)   
+* [https://kentcdodds.com/blog/usememo-and-usecallback](https://kentcdodds.com/blog/usememo-and-usecallback)   
+* [https://www.youtube.com/watch?v=4BranN3qnDU&t=13s](https://www.youtube.com/watch?v=4BranN3qnDU&t=13s) :bookmark:   
 * [https://www.youtube.com/watch?v=3cYtqrNUiVw](https://www.youtube.com/watch?v=3cYtqrNUiVw)   
 * [https://dmitripavlutin.com/use-react-memo-wisely/](https://dmitripavlutin.com/use-react-memo-wisely/)   
 * [https://medium.com/swlh/optimizing-react-performance-with-memo-usememo-and-usecallback-11fb34f4a3fa](https://medium.com/swlh/optimizing-react-performance-with-memo-usememo-and-usecallback-11fb34f4a3fa)   
 * [https://alligator.io/react/learning-react-memo/](https://alligator.io/react/learning-react-memo/)   
 * [https://alligator.io/react/usememo/](https://alligator.io/react/usememo/)   
-
-
-
-
-
